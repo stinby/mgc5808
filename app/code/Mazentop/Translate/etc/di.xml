@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<!--<type name="Magento\Eav\Model\Entity\Attribute\Frontend\AbstractFrontend">
+    <plugin name="Mazentop\Translate\Model\AbstractFrontendPlugin" type="Mazentop\Translate\Model\AbstractFrontendPlugin" sortOrder="100" />
+    </type>-->
+    <type name="Magento\Eav\Model\Entity\Attribute\Group">
+    	<plugin name="Mazentop\Translate\Model\Eav\Model\Entity\Attribute\GroupPlugin" type="Mazentop\Translate\Model\Eav\Model\Entity\Attribute\GroupPlugin" sortOrder="100" />
+    </type>
+    <type name="Magento\Eav\Model\Entity\Attribute\AbstractAttribute">
+    	<plugin name="Mazentop\Translate\Model\Eav\Model\Entity\Attribute\AbstractAttributePlugin" type="Mazentop\Translate\Model\Eav\Model\Entity\Attribute\AbstractAttributePlugin" sortOrder="100" />
+    </type>
+</config>
