@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="page.main.title" destination="product.info.main" before="-" />
+        <move element="product.price.final" destination="product.info.price" before="-" />
+        <move element="product.info.stock.sku" destination="product.info.price" after="product.info.review" />
+        <move element="product.info.description" destination="content" after="product.info.details" />
+        <move element="catalog.product.related" destination="content" after="product.info.description" />
+        <move element="reviews.tab" destination="content" after="catalog.product.related" />
+        <move element="product.info.main" destination="catalog.product.full"  />
+        <move element="product.info.media" destination="catalog.product.full"  />
+        
+        <referenceBlock name="breadcrumbs" remove="true"/>
+
+        <referenceContainer name="content">
+            <block class="Magento\Cms\Block\Block" name="specs" after="reviews.tab">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Specs</argument>
+                    <argument name="block_id" xsi:type="string">specs</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="faq" after="specs">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">FAQ</argument>
+                    <argument name="block_id" xsi:type="string">faq</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        
+    </body>
+</page>
+

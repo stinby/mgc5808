@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+		<move element="page.top" destination="header.container" after="-"/>
+		<move element="breadcrumbs" destination="page.wrapper" before="main.content"/>
+
+		<referenceBlock name="header" remove="true"/>
+		<referenceBlock name="wish-list-link" remove="true"/>
+		<referenceBlock name="my-account-link" remove="true"/>
+		<referenceBlock name="catalog.compare.link" remove="true"/>
+		
+		<referenceContainer name="header.panel">
+			<block class="Magento\Framework\View\Element\Template" name="header.cart" template="Magento_Theme::cart.phtml" before="top.links"/>	
+			<block class="Magento\Framework\View\Element\Template" name="header.search" template="Magento_Theme::search.phtml" />	
+			<block class="Magento\Cms\Block\Block" name="brand" after="-">
+	            <arguments>
+	                <argument name="block_id" xsi:type="string">header-brand</argument>
+	            </arguments>
+	        </block>
+		</referenceContainer>
+
+		<referenceContainer name="page.wrapper">
+			<container name="header.relative" label="Page Header Relative" htmlTag="div" htmlClass="header-relative" before="-">
+				<container name="header.fixed" label="Page Header Fixed" htmlTag="div" htmlClass="header-fixed"/>
+			</container>
+			<container name="slideshow" label="Page Header Slideshow" before="main.content"/>
+			<container name="catalog.full" label="Page Header Full" htmlTag="div" htmlClass="fullcat" after="slideshow">
+				<container name="catalog.product.full" label="Page Product Full" htmlTag="div" htmlClass="fullpro"/>
+			</container>
+			<block class="Magento\Cms\Block\Block" name="bottom-brand" after="footer-container">
+				<arguments>
+					<argument name="block_id" xsi:type="string">bottom-brand</argument>
+				</arguments>
+			</block>
+		</referenceContainer>
+
+		<referenceContainer name="header.container">
+			<container name="header-wrapper-mar" label="Page Header Mar"  htmlTag="div" htmlClass="header-mar"></container>
+		</referenceContainer>
+
+		<referenceBlock name="register-link">
+			<arguments>
+                <argument name="label" xsi:type="string" translate="true">Sign up</argument>
+            </arguments>
+		</referenceBlock>
+
+		<referenceContainer name="footer-container">
+			<container name="body.end" after="-">
+				<block class="Magento\Cms\Block\Block" name="foot_links" after="footer">
+					<arguments>
+						<argument name="block_id" xsi:type="string">foot_links</argument>
+					</arguments>
+				</block>
+
+			</container>
+		</referenceContainer>
+		<referenceBlock name="report.bugs" remove="true"/>
+		<referenceBlock name="footer_links" remove="true" />
+		<referenceBlock name="form.subscribe" remove="true" />
+		<move element="copyright" destination="page.wrapper" after="-" />
+		<move element="header-wrapper" destination="header-wrapper-mar"/>
+		<move element="register-link" destination="top.links" after="-"/>
+		<move element="header.container" destination="header.fixed" after="-"/>
+		<move element="currency" destination="header.panel" before="-"/>
+		<move element="navigation.sections" destination="header-wrapper" after="-"/>
+
+    </body>
+</page>
+

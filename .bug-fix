@@ -1,0 +1,6 @@
+/vendor/magento/framework/App/Filesystem/DirectoryResolver.php
+
+修改
+	$root = $this->directoryList->getPath($directoryConfig);
+为	
+	$root = realpath($this->directoryList->getPath($directoryConfig));

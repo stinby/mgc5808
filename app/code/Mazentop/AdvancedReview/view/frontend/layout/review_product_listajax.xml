@@ -12,5 +12,10 @@
                 <argument name="template" xsi:type="string">Mazentop_AdvancedReview::list.phtml</argument>
             </action>
         </block>
+        <block class="Magento\Theme\Block\Html\Pager" name="product_review_list.toolbar">
+		    <action method="setLimit">
+		        <argument name="limit" xsi:type="number">10</argument>
+		    </action>
+		</block>
     </container>
 </layout>
