@@ -26,8 +26,7 @@ module.exports = {
         files: [
             'css/styles-m',
             'css/styles-l',
-            'css/email',
-            'css/email-inline'
+            'css/style'
         ],
         dsl: 'less'
     },
